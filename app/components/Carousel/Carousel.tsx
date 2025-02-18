@@ -1,4 +1,3 @@
-'use client';
 import { carouselData } from '@/app/utils/consts';
 import { useRef, useState } from 'react';
 import {
@@ -9,39 +8,61 @@ import SelectedBadge from '../SelectedBadge';
 
 const Carousel = () => {
   const [selectedItem, setSelectedItem] = useState(0);
-  const data = carouselData.map((item, index) => ({
+  const [windowState, setWindowState] = useState(0);
+
+  const data = carouselData.map((item) => ({
     ...item,
     selected: selectedItem,
   }));
-  const ref = useRef(StackedCarousel);
+
+  const carouselRef = useRef<StackedCarousel>(null);
+
   const nextItem = () => {
     setSelectedItem((selectedItem + 1) % data.length);
-    ref.current?.goNext((selectedItem + 1) % data.length);
+    carouselRef.current?.goNext();
   };
+
   const prevItem = () => {
     setSelectedItem((selectedItem + data.length - 1) % data.length);
-    ref.current?.goBack((selectedItem + data.length - 1) % data.length);
+    carouselRef.current?.goBack();
   };
+
   return (
     <div className="relative w-full min-w-[384px]">
       <div className="flex w-full flex-col items-center">
         <ResponsiveContainer
-          carouselRef={ref}
-          render={(width, carouselRef) => {
+          render={(width, ref) => {
             let visibleSide = 7;
             let scale = [1, 0.5, 0.45, 0.4, 0.35];
-            if (width <= 1000) {
+            console.log(windowState);
+            if (width >= 685 && width <= 1000) {
               visibleSide = 5;
               scale.pop();
-            }
-            if (width < 685) {
+              if (windowState !== 1) {
+                setSelectedItem(0);
+                setWindowState(1);
+              }
+            } else if (width >= 535 && width < 685) {
               visibleSide = 3;
               scale.pop();
-            }
-            if (width < 535) {
+              scale.pop();
+              if (windowState !== 2) {
+                setSelectedItem(0);
+                setWindowState(2);
+              }
+            } else if (width < 535) {
               visibleSide = 1;
               scale.pop();
+              scale.pop();
+              scale.pop();
+              if (windowState !== 3) {
+                setSelectedItem(0);
+                setWindowState(2);
+              }
+            } else {
+              setWindowState(0);
             }
+
             return (
               <StackedCarousel
                 ref={carouselRef}
@@ -50,6 +71,7 @@ const Carousel = () => {
                 carouselWidth={width}
                 data={data}
                 maxVisibleSlide={visibleSide}
+                currentVisibleSlide={visibleSide}
                 disableSwipe
                 customScales={scale}
               ></StackedCarousel>
