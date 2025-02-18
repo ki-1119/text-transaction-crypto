@@ -41,13 +41,14 @@ const LastActivity = () => {
             </tr>
           </thead>
           <tbody>
-            {activities.map((activity: ActivityItem, index) => {
-              const d = {
-                activity,
-                lastItem: index === activities.length - 1,
-              };
-              return <LastActivityItem {...d} key={index} />;
-            })}
+            {activities &&
+              activities.map((activity: ActivityItem, index) => {
+                const d = {
+                  activity,
+                  lastItem: index === activities.length - 1,
+                };
+                return <LastActivityItem {...d} key={index} />;
+              })}
           </tbody>
         </table>
       </div>

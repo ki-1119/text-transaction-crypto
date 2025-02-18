@@ -50,6 +50,52 @@ export const carouselData = [
   },
 ];
 
+export const constTransaction: Array<{
+  transaction_hash: string;
+  block_timestamp: string;
+}> = [
+  {
+    transaction_hash: '0x586abefc2345de093cfa213',
+    block_timestamp: new Date().toLocaleDateString(),
+  },
+  {
+    transaction_hash: '0x586abefc2345de093cfa213',
+    block_timestamp: new Date().toLocaleDateString(),
+  },
+  {
+    transaction_hash: '0x586abefc2345de093cfa213',
+    block_timestamp: new Date().toLocaleDateString(),
+  },
+  {
+    transaction_hash: '0x586abefc2345de093cfa213',
+    block_timestamp: new Date().toLocaleDateString(),
+  },
+  {
+    transaction_hash: '0x586abefc2345de093cfa213',
+    block_timestamp: new Date().toLocaleDateString(),
+  },
+  {
+    transaction_hash: '0x586abefc2345de093cfa213',
+    block_timestamp: new Date().toLocaleDateString(),
+  },
+  {
+    transaction_hash: '0x586abefc2345de093cfa213',
+    block_timestamp: new Date().toLocaleDateString(),
+  },
+  {
+    transaction_hash: '0x586abefc2345de093cfa213',
+    block_timestamp: new Date().toLocaleDateString(),
+  },
+  {
+    transaction_hash: '0x586abefc2345de093cfa213',
+    block_timestamp: new Date().toLocaleDateString(),
+  },
+  {
+    transaction_hash: '0x586abefc2345de093cfa213',
+    block_timestamp: new Date().toLocaleDateString(),
+  },
+];
+
 export const responsive = {
   minWidth: 430,
   minRemM: 6,

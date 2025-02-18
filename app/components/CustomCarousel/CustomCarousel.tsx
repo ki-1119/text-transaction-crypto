@@ -15,7 +15,7 @@ const CustomCarousel = ({ children }: CustomCarouselType) => {
   const [isAnimating, setIsAnimating] = useState(false);
   const [movXY, setmoveXY] = useState(true);
   const [itemWidth, setItemWidth] = useState(0);
-  const carouselRef = useRef(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
   const childrenWidth = 384;
   const carouselHeight = 100;
   let space = 0;
@@ -30,6 +30,7 @@ const CustomCarousel = ({ children }: CustomCarouselType) => {
 
   useEffect(() => {
     function onResize() {
+      if (carouselRef.current === null) return;
       if (carouselRef.current.offsetWidth <= childrenWidth * 2) {
         setDisplayItems(3);
         setmoveXY(false);
@@ -116,7 +117,7 @@ const CustomCarousel = ({ children }: CustomCarouselType) => {
       </div>
       <div className="carousel-dot">
         {new Array(3).fill(0).map((_, index) => (
-          <div className="carousel-dot-item">
+          <div className="carousel-dot-item" key={`carousel-dot-${index}`}>
             <CustomDot
               active={
                 (displayItems == 3 && currentItem >= index) ||

@@ -24,6 +24,7 @@
         "@fortawesome/free-regular-svg-icons": "6.6.0",
         "@fortawesome/free-solid-svg-icons": "6.6.0",
         "@fortawesome/react-fontawesome": "0.2.2",
+        "@types/react-copy-to-clipboard": "5.0.7",
         "@types/react-slick": "0.23.13",
         "classnames": "2.5.1",
         "fontawesome": "5.6.3",
