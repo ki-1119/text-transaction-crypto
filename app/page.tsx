@@ -9,7 +9,7 @@ import HeaderNav from './components/HeaderNav';
 import LastActivity from './components/LastActivity';
 import Preview from './components/Preview';
 import { constTransaction } from './utils/consts';
-import { TransactionContext } from './utils/contexts';
+import { TransactionContext } from './utils/context';
 
 const inter = Inter({ subsets: ['latin'] });
 

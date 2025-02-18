@@ -8,21 +8,25 @@ import TabButton from '../TabButton';
 
 const HeaderNav = () => {
   const [selectedItem, setSelectedItem] = useState(0);
-  const navRef = useRef(null);
-  const ref = useRef(null);
+  const navRef = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const showNav = () => {
-    if (navRef.current.style.display === 'block') {
-      navRef.current.style.display = 'none';
-    } else {
-      navRef.current.style.display = 'block';
+    if (navRef.current) {
+      if (navRef.current.style.display === 'block') {
+        navRef.current.style.display = 'none';
+      } else {
+        navRef.current.style.display = 'block';
+      }
     }
   };
   useEffect(function mount() {
     function onResize() {
-      if (window.innerWidth < 1024) {
-        navRef.current.style.width = ref.current.offsetWidth - 48 + 'px';
-      } else {
-        navRef.current.style = '';
+      if (navRef.current && ref.current) {
+        if (window.innerWidth < 1024) {
+          navRef.current.style.width = ref.current.offsetWidth - 48 + 'px';
+        } else {
+          navRef.current.style.display = '';
+        }
       }
     }
     window.addEventListener('resize', onResize);

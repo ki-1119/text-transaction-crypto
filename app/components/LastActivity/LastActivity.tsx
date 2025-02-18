@@ -1,6 +1,6 @@
 'use client';
 
-import { TransactionContext } from '@/app/utils/contexts';
+import { TransactionContext } from '@/app/utils/context';
 import { useContext } from 'react';
 import { ActivityItem } from '../../utils/types';
 import LastActivityItem from './LastActivityItem';
