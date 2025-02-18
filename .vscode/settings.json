@@ -8,7 +8,7 @@
     "editor.formatOnSave": true,
     "editor.formatOnSaveMode": "file",
     "editor.letterSpacing": 0.7,
-    "editor.lineHeight": 30,
+    "editor.lineHeight": 23,
     "editor.fontWeight": 400,
     "editor.minimap.enabled": false,
     "editor.renderWhitespace": "none",
@@ -64,7 +64,6 @@
     "eslint.validate": ["javascript", "typescript"],
     "files.eol": "\n",
     "explorer.decorations.badges": false,
-
     "files.insertFinalNewline": true,
     "files.associations": {
         "*.css": "tailwindcss"
